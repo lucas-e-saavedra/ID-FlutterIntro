@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/src/view_detallepersonaje.dart';
 import 'apisimpsons.dart';
 
 class CharactersListPage extends StatefulWidget {
@@ -39,7 +40,15 @@ class _CharactersListPageState extends State<CharactersListPage> {
                   subtitle: Text(snapshot.data![index % 5].lastname!),
                   leading: Icon(Icons.account_circle_rounded),
                   onTap: () {
-                    print("Tapped Item ID:${snapshot.data?[index % 5].id}");
+                    print("Selected Item ID:${snapshot.data?[index % 5].id}");
+                    final charId = snapshot.data?[index % 5].id ?? 0;
+                    final route = MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            CharacterDetailsPage(charId: charId));
+                    Navigator.of(context).push(route);
+                  },
+                  onLongPress: () {
+                    print("Delete Item ID:${snapshot.data?[index % 5].id}");
                   },
                 );
               },

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'view_home.dart';
 import 'view_listapersonajes.dart';
+import 'view_detallepersonaje.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My First Flutter App',
       theme: ThemeData(primarySwatch: Colors.green),
-      home: const CharactersListPage(title: 'Personajes'),
+      home: const CharactersListPage(title: 'Lista Personajes'),
     );
   }
 }
