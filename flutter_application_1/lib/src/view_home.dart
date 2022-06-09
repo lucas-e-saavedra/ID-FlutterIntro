@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'widget_codelab.dart';
+import 'view_tokboxsessioninfo.dart';
+import 'view_listapersonajes.dart';
+import 'view_counter.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -10,40 +12,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedTabIndex = 0;
 
-  void _incrementCounter() {
+  void _onItemTapped(int index) {
     setState(() {
-      _counter++;
+      _selectedTabIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> pages = [
+      const CounterPage(title: "Home"),
+      const CharactersListPage(title: "Characters"),
+      const TokboxSessionPage(title: "VideoCall")
+    ];
+    List<BottomNavigationBarItem> tabs = [
+      const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.group), label: "Characters"),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.video_call), label: "VideoCall")
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            const MyFirstWidget()
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedTabIndex, onTap: _onItemTapped, items: tabs),
+      body: Center(child: pages.elementAt(_selectedTabIndex)),
     );
   }
 }

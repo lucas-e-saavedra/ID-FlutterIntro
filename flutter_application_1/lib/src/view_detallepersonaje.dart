@@ -23,7 +23,7 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Detalle"),
+        title: const Text("Detalle"),
       ),
       body: Center(
           child: FutureBuilder<Character>(
