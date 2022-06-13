@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widget_codelab.dart';
+import 'view_activityforresult.dart';
 
 class CounterPage extends StatefulWidget {
   const CounterPage({Key? key, required this.title}) : super(key: key);
@@ -11,11 +12,26 @@ class CounterPage extends StatefulWidget {
 
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
+  String _textExample = "Ejemplo";
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+  }
+
+  void _startActivityForResult() async {
+    var route = MaterialPageRoute(
+        builder: (BuildContext context) =>
+            const ActivityForResult(title: "ActivityForResult"));
+
+    var result = await Navigator.of(context).push(route);
+    print(result);
+    if (result != null && result.isNotEmpty) {
+      setState(() {
+        _textExample = result;
+      });
+    }
   }
 
   @override
@@ -31,6 +47,8 @@ class _CounterPageState extends State<CounterPage> {
         ),
         OutlinedButton(
             onPressed: _incrementCounter, child: const Text("Increment")),
+        OutlinedButton(
+            onPressed: _startActivityForResult, child: Text(_textExample)),
         const MyFirstWidget()
       ],
     );

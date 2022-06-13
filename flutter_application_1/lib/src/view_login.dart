@@ -13,9 +13,16 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isHidden = true;
 
   void _loginTapped() {
     widget.callback(_usernameController.text);
+  }
+
+  void _togglePassword() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
   }
 
   @override
@@ -42,10 +49,17 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: _passwordController,
-                  obscureText: true,
+                  obscureText: _isHidden,
                   autocorrect: false,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'Contraseña'),
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: 'Contraseña',
+                      suffix: InkWell(
+                        onTap: _togglePassword,
+                        child: Icon(_isHidden
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                      )),
                 ),
               ),
               OutlinedButton(
