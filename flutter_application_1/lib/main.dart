@@ -7,7 +7,7 @@ void main() {
 
 //proximos pasos: 
 //multilenguaje
-//interaccion nativo
+//interaccion nativo (android ok, pendiente ios y web)
 //mapas ubicacion
 //push notificacion
 //manejo de estado mas avanzado
