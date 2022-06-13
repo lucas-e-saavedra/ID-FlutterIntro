@@ -4,8 +4,10 @@ import 'view_listapersonajes.dart';
 import 'view_counter.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title, required this.callback})
+      : super(key: key);
   final String title;
+  final VoidCallback callback;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -37,6 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(
+              onPressed: widget.callback,
+              icon: const Icon(Icons.logout, semanticLabel: 'Log out'))
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedTabIndex, onTap: _onItemTapped, items: tabs),
