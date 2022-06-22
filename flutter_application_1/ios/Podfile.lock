@@ -1,0 +1,33 @@
+PODS:
+  - Flutter (1.0.0)
+  - OpenTok (2.22.3):
+    - VonageWebRTC (= 84.0.21)
+  - shared_preferences_ios (0.0.1):
+    - Flutter
+  - VonageWebRTC (84.0.21)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - OpenTok
+  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
+
+SPEC REPOS:
+  trunk:
+    - OpenTok
+    - VonageWebRTC
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  shared_preferences_ios:
+    :path: ".symlinks/plugins/shared_preferences_ios/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  OpenTok: 532cdb6254b7bf41c64f8ad761469d6f7a154c7b
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  VonageWebRTC: cfa7aefc3fe6e95bcbd778e8973af90fe9bfd497
+
+PODFILE CHECKSUM: cc931b50039573706a19f67d9b4ab577a61b1030
+
+COCOAPODS: 1.11.3
