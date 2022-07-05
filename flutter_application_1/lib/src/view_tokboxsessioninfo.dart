@@ -34,8 +34,6 @@ class _TokboxSessionPageState extends State<TokboxSessionPage> {
   }
 
   void beginVideoCall() {
-    //var apiKey = "46256142";
-    //var apiSecret = "e34ceb15c0eca4af5bfc5e1b75f374dc913ab744";
     try {
       var values = Map.from({
         "apiKey": "46256142",
@@ -47,10 +45,6 @@ class _TokboxSessionPageState extends State<TokboxSessionPage> {
       print(e);
     }
   }
-
-  //I/flutter (16945): BeginVideoCall 46256142
-  //I/flutter (16945): 1_MX40NjI1NjE0Mn5-MTY1NTE0NTY4MzcyMX5YNnQxSFdLVFFPUmhMTjRBWnJQbzFQQXV-QX4
-  //I/flutter (16945): T1==cGFydG5lcl9pZD00NjI1NjE0MiZzaWc9MTU5MWZhOWYxZDU4NWE3MWU1OWMyY2UzNDJkZTBiZWQyY2U0YjNkNTpzZXNzaW9uX2lkPTFfTVg0ME5qSTFOakUwTW41LU1UWTFOVEUwTlRZNE16Y3lNWDVZTm5ReFNGZExWRkZQVW1oTVRqUkJXbkpRYnpGUVFYVi1RWDQmY3JlYXRlX3RpbWU9MTY1NTE0NjQwNSZub25jZT0wLjc1NTUwMjc1MzE1MzMwMjUmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTY1NTIzMjgwNSZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==
 
   @override
   void initState() {

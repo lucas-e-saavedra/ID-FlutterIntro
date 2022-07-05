@@ -33,7 +33,7 @@ class _ActivityForResultState extends State<ActivityForResult> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: _okTapped, child: Icon(Icons.confirmation_num)),
+          onPressed: _okTapped, child: const Icon(Icons.confirmation_num)),
     );
   }
 }
