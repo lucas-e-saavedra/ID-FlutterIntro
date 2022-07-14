@@ -3,7 +3,7 @@ import 'dart:convert';
 
 Future<List<Character>> fetchAllCharacters() async {
   final response = await http.get(
-      Uri.parse('http://test-simpsons-assistcard.herokuapp.com/characters'));
+      Uri.parse('https://test-simpsons-assistcard.herokuapp.com/characters'));
 
   if (response.statusCode == 200) {
     var rawBody = jsonDecode(response.body);
@@ -25,7 +25,7 @@ Future<List<Character>> fetchAllCharacters() async {
 
 Future<Character> fetchOneCharacter(int idCharacter) async {
   final response = await http.get(Uri.parse(
-      'http://test-simpsons-assistcard.herokuapp.com/characters?id=$idCharacter'));
+      'https://test-simpsons-assistcard.herokuapp.com/characters?id=$idCharacter'));
 
   if (response.statusCode == 200) {
     return Character.fromJson(jsonDecode(response.body)['data']);

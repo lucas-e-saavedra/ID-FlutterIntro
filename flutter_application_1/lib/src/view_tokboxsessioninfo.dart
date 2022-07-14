@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+//import 'package:js/js.dart' as js;
 
 class TokboxSessionPage extends StatefulWidget {
   const TokboxSessionPage({Key? key, required this.title}) : super(key: key);
@@ -17,7 +20,7 @@ class _TokboxSessionPageState extends State<TokboxSessionPage> {
 
   Future<void> getSessionId() async {
     final url = Uri.parse(
-        'http://test-simpsons-assistcard.herokuapp.com/videocall-session');
+        'https://test-simpsons-assistcard.herokuapp.com/videocall-session');
     http.Response response = await http.post(url);
     setState(() {
       _sessionId = response.statusCode == 200 ? response.body : null;
@@ -26,7 +29,7 @@ class _TokboxSessionPageState extends State<TokboxSessionPage> {
 
   Future<void> getSessionToken() async {
     final url = Uri.parse(
-        'http://test-simpsons-assistcard.herokuapp.com/videocall-token');
+        'https://test-simpsons-assistcard.herokuapp.com/videocall-token');
     http.Response response = await http.get(url);
     setState(() {
       _sessionToken = response.statusCode == 200 ? response.body : null;
@@ -40,9 +43,10 @@ class _TokboxSessionPageState extends State<TokboxSessionPage> {
         "sessionId": _sessionId,
         "sessionToken": _sessionToken
       });
+      Platform.isFuchsia;
       platform.invokeMethod('beginVideoCall', values);
-    } on PlatformException catch (e) {
-      print(e);
+    } catch (e) {
+      //js.context.callMethod('loadVideoCall', ['46256142', _sessionId, _sessionToken]);
     }
   }
 
