@@ -14,3 +14,13 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Temáticas investigadas
+- Manejo de estados
+- Navegación entre pantallas y resultados
+- Multiidioma
+- Comunicacion con APIs Rest
+- Interacción con código nativo (MethodChannels)
+- Pendiente: interaccion con JS
+- Pendiente: utilización de librerias de mapas desde flutter
+- Pendiente: push notifications
